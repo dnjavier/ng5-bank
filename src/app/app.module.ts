@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthenticationService } from './services/authentication.service';
 import { ErrorComponent } from './shared/error/error.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -17,13 +18,12 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    ErrorComponent,
-    NavbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,    
+    SharedModule
   ],
   providers: [
     AuthenticationService
