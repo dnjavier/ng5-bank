@@ -7,12 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { ErrorComponent } from './error/error.component';
-import { NavbarComponent } from './navbar/navbar.component';
-
-
 import { AuthenticationService } from './services/authentication.service';
+import { ErrorComponent } from './shared/error/error.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 
 @NgModule({
@@ -20,7 +17,6 @@ import { AuthenticationService } from './services/authentication.service';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    SignUpComponent,
     ErrorComponent,
     NavbarComponent
   ],
