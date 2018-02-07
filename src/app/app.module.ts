@@ -11,6 +11,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { ErrorComponent } from './shared/error/error.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SharedModule } from './shared/shared.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,    
+    AppRoutingModule,
+    DashboardModule,    
     SharedModule
   ],
   providers: [
