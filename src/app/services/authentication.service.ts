@@ -9,6 +9,11 @@ import {
 @Injectable()
 export class AuthenticationService {
 
+    user = {
+        email:"test@test.com",
+        password:"12qw12qw"
+    }
+
   	userLoggedIn: boolean = false;
     loggedInUser: string;
     authUser;
@@ -22,19 +27,32 @@ export class AuthenticationService {
     }
 
     verifyLogin(url: string): boolean {
-    	return true;
+    	if (this.userLoggedIn) { return true; }
+
+        this.router.navigate(['/login']);
+        return false;
     }
 
-    register(email: string, password: string){
+    // register(email: string, password: string){
         
-    }
+    // }
 
-    verifyUser() {
-        
+    verifyUser(loginEmail: string, loginPassword: string) {
+        if (loginEmail === this.user.email && loginPassword === this.user.password) {
+            return true;
+        }
+        return false;
     }
 
     login(loginEmail: string, loginPassword: string) {
+        this.authUser = this.verifyUser(loginEmail, loginPassword)
         
+        if (this.authUser) {
+            this.loggedInUser = "test@test.com";
+            this.userLoggedIn = true;
+            console.log("Hello "+ this.loggedInUser)
+            this.router.navigate(['']);
+        }
     }
 
     logout(){

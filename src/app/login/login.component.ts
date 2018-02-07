@@ -12,14 +12,15 @@ export class LoginComponent implements OnInit {
   email: string;
   password1: string;
   
-  constructor(private userSVC: AuthenticationService, private router: Router){}
+  constructor(private auth: AuthenticationService, private router: Router){
+
+  }
 
   ngOnInit() {
   }
 
   login(){
-    this.userSVC.login(this.email, this.password1);
-    this.userSVC.verifyUser();
+    this.auth.login(this.email, this.password1);
   }
 
   cancel(){
