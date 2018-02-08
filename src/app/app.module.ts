@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 
+import { JwtInterceptorProvider } from './interceptors/jwt.interceptor';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -26,7 +28,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
     SharedModule
   ],
   providers: [
-    AuthenticationService
+    AuthenticationService,
+    JwtInterceptorProvider
   ],
   bootstrap: [AppComponent]
 })
