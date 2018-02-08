@@ -2,34 +2,37 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
-import { AccountListComponent } from './account-list/account-list.component';
-import { AccountDetailComponent } from './account-detail/account-detail.component';
 import { AuthenticationService } from '../services/authentication.service';
 import { ProfileComponent } from './profile/profile.component';
+import { ErrorComponent } from '../shared/error/error.component';
+import { ProfileModule } from './profile/profile.module';
+import { AccountsModule } from './accounts/accounts.module';
+import { AccountListComponent } from './accounts/account-list/account-list.component';
+import { AccountDetailComponent } from './accounts/account-detail/account-detail.component';
 
 const routes: Routes = [
     { 
         path: 'main',
-        canActivate: [AuthenticationService],
+        //canActivate: [AuthenticationService],
         component: DashboardComponent,
         children: [
+            {
+                path: 'accounts',
+                component: AccountListComponent
+            },
             {
                 path: 'accounts/:id',
                 component: AccountDetailComponent
             },
             {
-                path: 'accounts',
-                component: AccountListComponent,
-            },
-            {
                 path: 'profile',
-                component: ProfileComponent,
+                component: ProfileComponent
             },
             {
                 path: '',
                 redirectTo: '/main/accounts',
                 pathMatch: 'full'
-            },
+            }
         ]
     }
 ];
