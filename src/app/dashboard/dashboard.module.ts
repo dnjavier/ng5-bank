@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
 import { DashboardComponent } from './dashboard.component';
-import { DsNavigationComponent } from './ds-shared/ds-navigation/ds-navigation.component';
 import { MainNavigationComponent } from './ds-shared/main-navigation/main-navigation.component';
 import { ProfileModule } from './profile/profile.module';
 import { AccountsModule } from './accounts/accounts.module';
@@ -16,9 +15,6 @@ import { AccountsModule } from './accounts/accounts.module';
     ],
     declarations: [
         DashboardComponent,
-        //AccountListComponent,
-        //AccountDetailComponent,
-        DsNavigationComponent,
         MainNavigationComponent
     ],
     providers: [

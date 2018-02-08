@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
+
 import { AccountsRoutingModule } from './accounts-routing.module';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
 import { AccountListComponent } from './account-list/account-list.component';
+import { AccountsComponent } from './accounts.component';
+import { AccountNavComponent } from './account-nav/account-nav.component';
 
 
 @NgModule({
     imports: [
-        //AccountsRoutingModule
+        AccountsRoutingModule
     ],
     declarations: [
+        AccountsComponent,
         AccountDetailComponent,
-        AccountListComponent
+        AccountListComponent,
+        AccountNavComponent
     ],
     providers: [
         //Services in accounts

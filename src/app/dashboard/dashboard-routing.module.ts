@@ -9,6 +9,7 @@ import { ProfileModule } from './profile/profile.module';
 import { AccountsModule } from './accounts/accounts.module';
 import { AccountListComponent } from './accounts/account-list/account-list.component';
 import { AccountDetailComponent } from './accounts/account-detail/account-detail.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 const routes: Routes = [
     { 
@@ -18,11 +19,17 @@ const routes: Routes = [
         children: [
             {
                 path: 'accounts',
-                component: AccountListComponent
-            },
-            {
-                path: 'accounts/:id',
-                component: AccountDetailComponent
+                component: AccountsComponent,
+                children: [
+                    {
+                        path: '',
+                        component: AccountListComponent
+                    },
+                    {
+                        path: ':id',
+                        component: AccountDetailComponent
+                    }
+                ]
             },
             {
                 path: 'profile',
