@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { DashboardComponent } from './dashboard.component';
 import { AccountListComponent } from './account-list/account-list.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
 import { AuthenticationService } from '../services/authentication.service';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
     { 
@@ -18,7 +20,10 @@ const routes: Routes = [
             {
                 path: 'accounts',
                 component: AccountListComponent,
-                pathMatch: 'full'
+            },
+            {
+                path: 'profile',
+                component: ProfileComponent,
             },
             {
                 path: '',

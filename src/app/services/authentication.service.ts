@@ -27,7 +27,12 @@ export class AuthenticationService {
     }
 
     verifyLogin(url: string): boolean {
-    	if (this.userLoggedIn) { return true; }
+    	if (this.userLoggedIn) { 
+            console.log(url , "/main/accounts")
+            console.log('logged?' + this.userLoggedIn);
+            //this.router.navigate([url]);
+            return true; 
+        }
 
         this.router.navigate(['/login']);
         return false;
