@@ -5,6 +5,11 @@ import {
     ActivatedRouteSnapshot,
     RouterStateSnapshot
 } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
+import { appConfig } from '../app.config';
 
 @Injectable()
 export class AuthenticationService {
@@ -18,7 +23,7 @@ export class AuthenticationService {
     loggedInUser: string;
     authUser;
 
-    constructor( private router: Router ) {
+    constructor( private router: Router , private http: HttpClient) {
      }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -50,14 +55,18 @@ export class AuthenticationService {
     }
 
     login(loginEmail: string, loginPassword: string) {
-        this.authUser = this.verifyUser(loginEmail, loginPassword)
-        
-        if (this.authUser) {
-            this.loggedInUser = "test@test.com";
-            this.userLoggedIn = true;
-            console.log("Hello "+ this.loggedInUser)
-            this.router.navigate(['/main']);
-        }
+        console.log(loginEmail);
+        return this.http.post<any>(appConfig.apiUrl + '/users/authenticate', { username: loginEmail, password: loginPassword })
+        .map(user => {
+            console.log(user);
+            // login successful if there's a jwt token in the response
+            if (user && user.token) {
+                // store user details and jwt token in local storage to keep user logged in between page refreshes
+                localStorage.setItem('currentUser', JSON.stringify(user));
+            }
+
+            return user;
+        });
     }
 
     logout(){

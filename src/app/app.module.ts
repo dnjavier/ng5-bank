@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { JwtInterceptorProvider } from './interceptors/jwt.interceptor';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,11 +20,12 @@ import { DashboardModule } from './dashboard/dashboard.module';
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
+    LoginComponent    
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     DashboardModule,   
     SharedModule
