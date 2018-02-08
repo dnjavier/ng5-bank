@@ -51,7 +51,7 @@ export class AuthenticationService {
             this.loggedInUser = "test@test.com";
             this.userLoggedIn = true;
             console.log("Hello "+ this.loggedInUser)
-            this.router.navigate(['']);
+            this.router.navigate(['/main']);
         }
     }
 
