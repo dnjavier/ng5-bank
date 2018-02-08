@@ -23,8 +23,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
-    DashboardModule,    
+    DashboardModule,
+    AppRoutingModule,    
     SharedModule
   ],
   providers: [
