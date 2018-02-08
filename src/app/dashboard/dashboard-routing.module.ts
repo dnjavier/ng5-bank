@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { AccountListComponent } from './account-list/account-list.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
+import { AuthenticationService } from '../services/authentication.service';
 
 const routes: Routes = [
     { 
-        path: 'main', 
+        path: 'main',
+        canActivate: [AuthenticationService],
         component: DashboardComponent,
         children: [
             {
