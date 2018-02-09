@@ -14,7 +14,7 @@ import { AccountsComponent } from './accounts/accounts.component';
 const routes: Routes = [
     { 
         path: 'main',
-        //canActivate: [AuthenticationService],
+        canActivate: [AuthenticationService],
         component: DashboardComponent,
         children: [
             {
