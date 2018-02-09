@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  email: string;
-  password1: string;
+  emailInput: string;
+  passwordInput: string;
   
   constructor(private auth: AuthenticationService, private router: Router){
 
@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    console.log(this.email, this.password1);
-    this.auth.login(this.email, this.password1)
+    console.log(this.emailInput, this.passwordInput);
+    this.auth.login(this.emailInput, this.passwordInput)
       .subscribe(
         data => {
             this.router.navigate(["/main"]);
