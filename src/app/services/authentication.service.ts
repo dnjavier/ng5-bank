@@ -27,18 +27,17 @@ export class AuthenticationService {
      }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        let url: string = state.url;
-        return this.verifyLogin(url);
+        if (localStorage.getItem('currentUser')) {
+            // logged in so return true
+            return true;
+        }
+        return this.verifyLogin();
     }
 
-    verifyLogin(url: string): boolean {
+    verifyLogin(): boolean {
     	if (this.userLoggedIn) { 
-            console.log(url , "/main/accounts")
-            console.log('logged?' + this.userLoggedIn);
-            //this.router.navigate([url]);
             return true; 
         }
-
         this.router.navigate(['/login']);
         return false;
     }
@@ -47,24 +46,23 @@ export class AuthenticationService {
         
     // }
 
-    verifyUser(loginEmail: string, loginPassword: string) {
-        if (loginEmail === this.user.email && loginPassword === this.user.password) {
-            return true;
-        }
-        return false;
-    }
+    // verifyUser(loginEmail: string, loginPassword: string) {
+    //     if (loginEmail === this.user.email && loginPassword === this.user.password) {
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
     login(loginEmail: string, loginPassword: string) {
-        console.log(loginEmail);
         return this.http.post<any>(appConfig.apiUrl + '/users/authenticate', { username: loginEmail, password: loginPassword })
         .map(user => {
             console.log(user);
             // login successful if there's a jwt token in the response
             if (user && user.token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
+                this.userLoggedIn = true;
                 localStorage.setItem('currentUser', JSON.stringify(user));
             }
-
             return user;
         });
     }
