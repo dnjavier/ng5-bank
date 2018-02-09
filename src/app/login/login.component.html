@@ -4,22 +4,25 @@
         <h1 class="col-sm-10 col-md-8 col-lg-6 align-self-center">Login to your Account</h1>
     </div>
     <div class="row justify-content-center">
-        <form class="col-sm-10 col-md-8 col-lg-6 align-self-center">
+        <form #form="ngForm" class="col-sm-10 col-md-8 col-lg-6 align-self-center">
+
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="text" [ngClass]="(!em.valid)?'form-control border-danger':'form-control'" placeholder="Email Address" id="email" 
-                    [(ngModel)]="email" name="email" required #em="ngModel">
-                <div [hidden]="em.valid || em.pristine" class="text-danger">
-                  Email is required
+                <label>Email address</label>
+                <input #email="ngModel" type="text" placeholder="Email Address" class="form-control"
+                    [class.is-invalid]="email.invalid && email.touched"
+                    [(ngModel)]="emailInput" name="email" required>
+                <div *ngIf="email.invalid && email.touched" class="text-danger">
+                    Email is required.
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" [ngClass]="(!pwd1.valid)?'form-control border-danger':'form-control'" placeholder="Password" id="password1" 
-                    [(ngModel)]="password1" name="password1" required #pwd1="ngModel">
-                <div [hidden]="pwd1.valid || pwd1.pristine" class="text-danger">
-                  Password required
+                <label>Password</label>
+                <input #password="ngModel" type="text" placeholder="Password" class="form-control"
+                    [class.is-invalid]="password.invalid && password.touched"
+                    [(ngModel)]="passwordInput" name="password" required>
+                <div *ngIf="password.invalid && password.touched" class="text-danger">
+                    Password is required.
                 </div>
             </div>
 
