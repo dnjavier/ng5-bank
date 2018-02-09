@@ -18,7 +18,7 @@
 
             <div class="form-group">
                 <label>Password</label>
-                <input #password="ngModel" type="text" placeholder="Password" class="form-control"
+                <input #password="ngModel" type="password" placeholder="Password" class="form-control"
                     [class.is-invalid]="password.invalid && password.touched"
                     [(ngModel)]="passwordInput" name="password" required>
                 <div *ngIf="password.invalid && password.touched" class="text-danger">
