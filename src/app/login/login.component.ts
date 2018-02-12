@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    console.log(this.emailInput, this.passwordInput);
+    
     this.auth.login(this.emailInput, this.passwordInput)
       .subscribe(
         data => {
