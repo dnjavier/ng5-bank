@@ -4,6 +4,7 @@ import { ITransaction } from '../models/transaction.model';
 import { IAccount } from '../models/account.model';
 import { AccountService } from '../services/account.service';
 import 'rxjs/add/operator/mergeMap';
+import { TransactionService } from '../services/transaction.service';
 
 @Component({
   selector: 'ds-account-list',
@@ -14,25 +15,11 @@ export class AccountDetailComponent implements OnInit {
   errorMessage: string;
   accountId: number;
   account: IAccount;
-  transactions: ITransaction[] = [
-    {
-      date: '9 FEB 18',
-      accFrom: 1,
-      accTo: 2,
-      amount: 5000.00,
-      description: 'GIC principal cancelled from 101213153'
-    },
-    {
-      date: '1 FEB 18',
-      accFrom: 1,
-      accTo: 2,
-      amount: 345.00,
-      description: 'GIC principal cancelled from 101213154'
-    }
-  ];
+  transactions: ITransaction[];
   
   constructor(private _route: ActivatedRoute,
-              private _accountService: AccountService){ }
+              private _accountService: AccountService,
+              private _transactionService: TransactionService){ }
 
   ngOnInit() {
     // get URL parameters
@@ -41,9 +28,12 @@ export class AccountDetailComponent implements OnInit {
         this.accountId = +params['id']; // --> Name must match wanted parameter
         return this._accountService.getAccount(this.accountId);
       })
-      .subscribe(account => {
+      .flatMap(account => {
           this.account = account;
-        },
-        error => this.errorMessage = <any>error);
+          return this._transactionService.getTransaction(this.accountId);
+      })
+      .subscribe(transactions => {
+        this.transactions = transactions;
+      });
   }
 }

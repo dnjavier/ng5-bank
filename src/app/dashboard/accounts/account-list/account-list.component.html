@@ -1,6 +1,6 @@
 <h4>Your most recent transactions</h4>
 <p>You have {{ transactions.length }} recent transactions</p>
-<table class="table">
+<table class="table" *ngIf="transactions && transactions.length">
     <thead>
         <tr>
         <th scope="col">Date</th>
