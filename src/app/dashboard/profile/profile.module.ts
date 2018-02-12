@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ProfileComponent } from './profile.component';
+import { NavProfileComponent } from './nav-profile/nav-profile.component';
 
 
 @NgModule({
@@ -7,6 +8,7 @@ import { ProfileComponent } from './profile.component';
         //ProfileRoutingModule
     ],
     declarations: [
+        NavProfileComponent,
         ProfileComponent
     ],
     providers: [
