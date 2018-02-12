@@ -1,1 +1,22 @@
-<p>Account detail</p>
+<h3>{{ account.name }} (<span>{{ account.number }}</span>)</h3>
+<h4>Account balance: ${{ account.amount }}</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Description</th>
+        <th scope="col">In</th>
+        <th scope="col">Out</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let transaction of transactions">
+            <td>{{ transaction.date }}</td>
+            <td>{{ transaction.description }}</td>
+            <td>+${{ transaction.amount }}</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
