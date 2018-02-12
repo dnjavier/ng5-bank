@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IAccount } from '../models/account.model';
+import { AccountService } from '../services/account.service';
+import { error } from 'util';
 
 @Component({
     selector: 'account-nav',
@@ -9,24 +11,17 @@ import { IAccount } from '../models/account.model';
 
 export class AccountNavComponent implements OnInit {
 
-  accounts: IAccount[] = [
-    {
-      number: 1,
-      name: 'daily savings',
-      user: 1,
-      amount: 500.00
-    },
-    {
-      number: 2,
-      name: 'car saving',
-      user: 1,
-      amount: 300.00
-    }
-  ];
+  errorMessage: string;
+  accounts: IAccount[] = [];
 
-  constructor() { }
+  constructor(private _accountService: AccountService) { }
 
   ngOnInit() {
+    this._accountService.getAccounts()
+      .subscribe(accounts => {
+        this.accounts = accounts;
+      },
+      error => this.errorMessage = <any>error);
   }
 
 }

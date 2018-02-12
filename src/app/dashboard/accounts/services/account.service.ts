@@ -8,7 +8,8 @@ import { IAccount } from '../models/account.model';
 
 @Injectable()
 export class AccountService {
-    private _accountUrl = 'http://10.28.6.16:4000/getAccounts';
+    private _userId: number = 1;
+    private _accountUrl: string = 'http://10.28.6.16:4000/accounts/'+ this._userId;
 
     constructor(private _http: HttpClient) {}
 

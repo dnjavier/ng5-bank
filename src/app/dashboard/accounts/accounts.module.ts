@@ -6,6 +6,7 @@ import { AccountsComponent } from './accounts.component';
 import { AccountNavComponent } from './account-nav/account-nav.component';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { AccountService } from './services/account.service';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { BrowserModule } from '@angular/platform-browser';
         AccountNavComponent
     ],
     providers: [
-        //Services in accounts
+        AccountService
     ]
 })
 export class AccountsModule { }

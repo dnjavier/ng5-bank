@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ITransaction } from '../models/transaction.model';
 import { IAccount } from '../models/account.model';
 
@@ -34,8 +34,13 @@ export class AccountDetailComponent implements OnInit {
     amount: 500
   };
   
-  constructor(){ }
+  constructor(private _route: ActivatedRoute){ }
 
   ngOnInit() {
+    // get URL parameters
+    this._route.params.subscribe(params => {
+      let accountId = +params['id']; // --> Name must match wanted parameter
+      this.account.number = accountId;
+    });
   }
 }
