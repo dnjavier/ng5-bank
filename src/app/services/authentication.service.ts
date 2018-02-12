@@ -14,10 +14,10 @@ import { appConfig } from '../app.config';
 @Injectable()
 export class AuthenticationService {
 
-    user = {
-        email:"test@test.com",
-        password:"12qw12qw"
-    }
+    // user = {
+    //     email:"test@test.com",
+    //     password:"12qw12qw"
+    // }
 
   	userLoggedIn: boolean = false;
     loggedInUser: string;
@@ -56,7 +56,7 @@ export class AuthenticationService {
     login(loginEmail: string, loginPassword: string) {
         return this.http.post<any>(appConfig.apiUrl + '/users/authenticate', { username: loginEmail, password: loginPassword })
         .map(user => {
-            console.log(user);
+            // console.log(user);
             // login successful if there's a jwt token in the response
             if (user && user.token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
