@@ -11,40 +11,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>9 FEB 18</td>
-            <td>Account name 1 (200-001-452)</td>
-            <td>GIC principal cancelled from 101213153</td>
-            <td>+$5000.00</td>
+        <tr *ngFor="let transaction of transactions">
+            <td>{{ transaction.date }}</td>
+            <td>({{ transaction.accFrom }})</td>
+            <td>{{ transaction.description }}</td>
+            <td>+${{ transaction.amount }}</td>
             <td></td>
-        </tr>
-        <tr>
-            <td>1 FEB 18</td>
-            <td>Account name 1 (200-001-452)</td>
-            <td>GIC principal cancelled from 101213154</td>
-            <td>+$345.00</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>31 JAN 18</td>
-            <td>Account name 2 (100-001-452)</td>
-            <td>Interest received</td>
-            <td>+$97.05</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>5 JAN 18</td>
-            <td>Account name 1 (200-001-452)</td>
-            <td>GIC purchase to 101213153</td>
-            <td>+$150.00</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>17 DIC 17</td>
-            <td>Account name 2 (100-001-452)</td>
-            <td>GIC principal cancelled from 101213153</td>
-            <td></td>
-            <td>-$100.00</td>
         </tr>
     </tbody>
 </table>
