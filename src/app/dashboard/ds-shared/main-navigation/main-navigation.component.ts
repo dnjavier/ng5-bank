@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
     styleUrls: ['./main-navigation.component.scss']
 })
 export class MainNavigationComponent implements OnInit {
-
+  user = {};
   constructor(private auth: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
+    this.user = this.auth.user;
   }
 
   logout() {

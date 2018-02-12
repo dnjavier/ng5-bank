@@ -9,8 +9,9 @@
       <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['accounts']">Accounts</a>
       <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['profile']">Profile</a>
     </div>
-    <div class=" ">
-      <a class="btn text-secondary" (click)="logout()">Logout</a>
+    <div class="navbar-nav">
+      <a class="nav-link text-info">{{user.username}}</a>
+      <a class="nav-link text-secondary" (click)="logout()">Logout</a>
     </div>
     
   </div>

@@ -14,10 +14,7 @@ import { appConfig } from '../app.config';
 @Injectable()
 export class AuthenticationService {
 
-    // user = {
-    //     email:"test@test.com",
-    //     password:"12qw12qw"
-    // }
+    user = {};
 
   	userLoggedIn: boolean = false;
     loggedInUser: string;
@@ -29,6 +26,7 @@ export class AuthenticationService {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         if (localStorage.getItem('currentUser')) {
             // logged in so return true
+            this.user = JSON.parse(localStorage.currentUser);
             return true;
         }
         return this.verifyLogin();
@@ -61,6 +59,7 @@ export class AuthenticationService {
             if (user && user.token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 this.userLoggedIn = true;
+                this.user = user;
                 localStorage.setItem('currentUser', JSON.stringify(user));
             }
             return user;
