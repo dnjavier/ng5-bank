@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ITransaction } from '../models/transaction.model';
 import { IAccount } from '../models/account.model';
+import { AccountService } from '../services/account.service';
+import 'rxjs/add/operator/mergeMap';
 
 @Component({
   selector: 'ds-account-list',
@@ -9,7 +11,9 @@ import { IAccount } from '../models/account.model';
   styleUrls: ['./account-detail.component.scss']
 })
 export class AccountDetailComponent implements OnInit {
-  
+  errorMessage: string;
+  accountId: number;
+  account: IAccount;
   transactions: ITransaction[] = [
     {
       date: '9 FEB 18',
@@ -26,21 +30,20 @@ export class AccountDetailComponent implements OnInit {
       description: 'GIC principal cancelled from 101213154'
     }
   ];
-
-  account: IAccount = {
-    name: 'Daily savings',
-    number: 1,
-    user: 1,
-    amount: 500
-  };
   
-  constructor(private _route: ActivatedRoute){ }
+  constructor(private _route: ActivatedRoute,
+              private _accountService: AccountService){ }
 
   ngOnInit() {
     // get URL parameters
-    this._route.params.subscribe(params => {
-      let accountId = +params['id']; // --> Name must match wanted parameter
-      this.account.number = accountId;
-    });
+    this._route.params
+      .flatMap(params => {
+        this.accountId = +params['id']; // --> Name must match wanted parameter
+        return this._accountService.getAccount(this.accountId);
+      })
+      .subscribe(account => {
+          this.account = account;
+        },
+        error => this.errorMessage = <any>error);
   }
 }
