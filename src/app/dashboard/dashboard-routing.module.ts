@@ -9,6 +9,8 @@ import { ProfileModule } from './profile/profile.module';
 import { AccountsModule } from './accounts/accounts.module';
 import { AccountListComponent } from './accounts/account-list/account-list.component';
 import { AccountDetailComponent } from './accounts/account-detail/account-detail.component';
+import { ChangeEmailComponent } from './profile/change-email/change-email.component';
+import { ChangePasswordComponent } from './profile/change-password/change-password.component';
 import { AccountsComponent } from './accounts/accounts.component';
 
 const routes: Routes = [
@@ -33,7 +35,17 @@ const routes: Routes = [
             },
             {
                 path: 'profile',
-                component: ProfileComponent
+                component: ProfileComponent,
+                children: [
+                    {
+                        path: 'ChangeEmail',
+                        component: ChangeEmailComponent
+                    },
+                    {
+                        path: 'ChangePassword',
+                        component: ChangePasswordComponent
+                    }
+                ]
             },
             {
                 path: '',

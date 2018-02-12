@@ -1,15 +1,23 @@
 import { NgModule } from '@angular/core';
 import { ProfileComponent } from './profile.component';
 import { NavProfileComponent } from './nav-profile/nav-profile.component';
+import { ChangeEmailComponent } from './change-email/change-email.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+
+import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
     imports: [
-        //ProfileRoutingModule
+        RouterModule.forChild([]),
+        BrowserModule
     ],
     declarations: [
         NavProfileComponent,
-        ProfileComponent
+        ProfileComponent,
+        ChangeEmailComponent,
+        ChangePasswordComponent
     ],
     providers: [
         //Services in profile
