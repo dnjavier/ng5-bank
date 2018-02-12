@@ -5,11 +5,13 @@ import { AccountListComponent } from './account-list/account-list.component';
 import { AccountsComponent } from './accounts.component';
 import { AccountNavComponent } from './account-nav/account-nav.component';
 import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
     imports: [
-        RouterModule.forChild([])
+        RouterModule.forChild([]),
+        BrowserModule
     ],
     declarations: [
         AccountsComponent,
