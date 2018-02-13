@@ -6,12 +6,15 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
     imports: [
         RouterModule.forChild([]),
-        BrowserModule
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     declarations: [
         NavProfileComponent,
