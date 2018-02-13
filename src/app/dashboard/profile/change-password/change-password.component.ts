@@ -7,7 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./change-password.component.scss']
 })
 export class ChangePasswordComponent implements OnInit {
-
+  previousPassword: string;
+  newPassword: string;
+  confirmNewPassword: string;
   
   constructor(){ }
 
