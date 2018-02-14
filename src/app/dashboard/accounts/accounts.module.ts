@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { AccountService } from './services/account.service';
 import { TransactionService } from './services/transaction.service';
+import { DashboardModule } from '../dashboard.module';
+import { FormatAccountPipe } from './pipes/format-account.pipe';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { TransactionService } from './services/transaction.service';
         AccountsComponent,
         AccountDetailComponent,
         AccountListComponent,
-        AccountNavComponent
+        AccountNavComponent,
+        FormatAccountPipe
     ],
     providers: [
         AccountService,

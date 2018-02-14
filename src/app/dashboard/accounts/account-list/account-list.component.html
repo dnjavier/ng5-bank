@@ -13,7 +13,7 @@
     <tbody>
         <tr *ngFor="let transaction of transactions">
             <td>{{ transaction.date }}</td>
-            <td>({{ transaction.accFrom }})</td>
+            <td>({{ transaction.accFrom | formatAccount }})</td>
             <td>{{ transaction.description }}</td>
             <td>+${{ transaction.amount }}</td>
             <td></td>

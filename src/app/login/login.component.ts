@@ -12,7 +12,8 @@ export class LoginComponent implements OnInit {
   emailInput: string;
   passwordInput: string;
   
-  constructor(private auth: AuthenticationService, private router: Router){
+  constructor(private auth: AuthenticationService, 
+              private router: Router){
 
   }
 
@@ -34,7 +35,4 @@ export class LoginComponent implements OnInit {
   cancel(){
     this.router.navigate(['']);
   }
-
-  
-
 }
