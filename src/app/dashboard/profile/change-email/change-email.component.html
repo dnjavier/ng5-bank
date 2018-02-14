@@ -1,1 +1,28 @@
 <h4>Change Email</h4>
+<p>Previous email address: <span>{{ user.username }}</span></p>
+
+<form #form="ngForm">
+
+    <div class="form-group">
+        <label>New email address</label>
+        <input #newEmail="ngModel" name="newEmailAddress" type="text" placeholder="New email address" class="form-control"
+            [class.is-invalid]="newEmail.invalid && newEmail.touched"
+            [(ngModel)]="newEmailAddress" required>
+        <div *ngIf="newEmail.invalid && newEmail.touched" class="text-danger">
+            This field is required.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Confirm email address</label>
+        <input #confirmEmail="ngModel" name="confirmEmailAddress" type="text" placeholder="Confirm email address" class="form-control"
+            [class.is-invalid]="confirmEmail.invalid && confirmEmail.touched"
+            [(ngModel)]="confirmEmailAddress" required>
+        <div *ngIf="confirmEmail.invalid && confirmEmail.touched" class="text-danger">
+            This field is required.
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="saveChanges()">Save changes</button>
+
+</form>
