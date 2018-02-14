@@ -10,12 +10,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import { appConfig } from '../app.config';
-import { User } from '../models/user.model';
+import { IUser } from '../models/user.model';
 
 @Injectable()
 export class AuthenticationService {
 
-    user: User = {
+    user: IUser = {
         username: '',
         password: ''
     };

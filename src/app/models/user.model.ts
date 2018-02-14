@@ -1,8 +1,4 @@
-export class User {
-    constructor(
-        public username: string,
-        public password: string
-    ) {
-
-    }
+export interface IUser {
+    username: string,
+    password: string
 }
