@@ -1,12 +1,15 @@
 <ul class="nav nav-sidebar">
-    <li><a [routerLink]="['/main/accounts']">
+    <li><a [routerLink]="['/main/accounts']"
+            [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{exact:true}">
         <div>
             <h4>Total Balance</h4>
             <h3>$800.00</h3>
         </div>
     </a></li>
     <li *ngFor="let account of accounts">
-        <a [routerLink]="['/main', 'accounts', account.number]">
+        <a [routerLink]="['/main', 'accounts', account.number]"
+            [routerLinkActive]="['active']">
             <div>
                 <h4>{{ account.name }}</h4>
                 <h3>${{ account.amount }}</h3>

@@ -1,0 +1,42 @@
+.nav-sidebar {    
+    li {
+        width: 100%;
+        border: 1px solid #ced5dc;        
+        border-bottom: none;
+
+        &:last-child {
+            border-bottom: 1px solid #ced5dc;    
+        }        
+    }
+
+    a {
+        padding: 10px;
+        width: 100%;
+        display: block;
+        height: 100%;
+        background: #dee2e6;
+
+        &:hover {
+            background: #e9ecef;
+        }
+
+        &.active {
+            background: #e9ecef;
+        }
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    h4 {
+        color: black;
+        font-size: 18px;
+    }
+
+    h3 {
+        color: black;
+        font-size: 16px;
+        margin: 0;
+    }
+}
