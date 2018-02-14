@@ -1,5 +1,5 @@
 <div *ngIf="account">
-    <h3>{{ account.name }} (<span>{{ account.number }}</span>)</h3>
+    <h3>{{ account.name }} (<span>{{ account.number | formatAccount }}</span>)</h3>
     <h4>Account balance: ${{ account.amount }}</h4>
 
     <table class="table">

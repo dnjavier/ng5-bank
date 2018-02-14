@@ -6,8 +6,8 @@ import { SharedRoutingModule } from './shared-routing.module';
 
 @NgModule({
   imports: [
-      RouterModule,
-      SharedRoutingModule
+    RouterModule,
+    SharedRoutingModule
   ],
   declarations: [
     NavbarComponent,
