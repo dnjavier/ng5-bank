@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AlertModule } from 'ngx-bootstrap';
 
 import { JwtInterceptorProvider } from './interceptors/jwt.interceptor';
 
@@ -27,7 +29,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
     HttpClientModule,
     AppRoutingModule,
     DashboardModule,   
-    SharedModule
+    SharedModule,
+    NgbModule.forRoot()
   ],
   providers: [
     AuthenticationService,

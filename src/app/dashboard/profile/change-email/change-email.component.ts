@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../services/authentication.service';
-import { User } from '../../../models/user.model';
+import { IUser } from '../../../models/user.model';
 
 @Component({
   selector: 'change-email',
@@ -9,7 +9,7 @@ import { User } from '../../../models/user.model';
   styleUrls: ['./change-email.component.scss']
 })
 export class ChangeEmailComponent implements OnInit {
-  user: User;
+  user: IUser;
   newEmailAddress: string;
   confirmedEmailAddress: string;
   
