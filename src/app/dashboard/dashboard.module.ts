@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
@@ -11,7 +12,8 @@ import { AccountsModule } from './accounts/accounts.module';
     imports: [
         AccountsModule,
         ProfileModule,
-        DashboardRoutingModule
+        DashboardRoutingModule,
+        NgbModule
     ],
     declarations: [
         DashboardComponent,
