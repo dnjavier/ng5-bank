@@ -17,7 +17,8 @@ export class AuthenticationService {
 
     user: IUser = {
         username: '',
-        password: ''
+        password: '',
+        _id:""
     };
 
   	userLoggedIn: boolean = false;
@@ -48,12 +49,15 @@ export class AuthenticationService {
         
     // }
 
-    // verifyUser(loginEmail: string, loginPassword: string) {
-    //     if (loginEmail === this.user.email && loginPassword === this.user.password) {
-    //         return true;
-    //     }
-    //     return false;
-    // }
+    updateUser(newUser) {
+        var updateNewUser = {
+            username : newUser.username,
+            previousPassword : newUser.previousPassword,
+            newPassword : newUser.newPassword
+        };
+        
+        return this.http.put(appConfig.apiUrl + '/users/' + this.user._id, updateNewUser);
+    }
 
     login(loginEmail: string, loginPassword: string) {
         return this.http.post<any>(appConfig.apiUrl + '/users/authenticate', { username: loginEmail, password: loginPassword })
