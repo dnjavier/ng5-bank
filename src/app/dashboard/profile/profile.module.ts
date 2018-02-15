@@ -7,6 +7,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OverviewComponent } from './overview/overview.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         NavProfileComponent,
         ProfileComponent,
         ChangeEmailComponent,
-        ChangePasswordComponent
+        ChangePasswordComponent,
+        OverviewComponent
     ],
     providers: [
         //Services in profile
