@@ -14,7 +14,7 @@ export class AccountService {
     constructor(private _http: HttpClient) {}
 
     getAccounts(): Observable<IAccount[]> {
-        let url = this._accountUrl + '/' + this._userId
+        let url = this._accountUrl + '/' + this._userId;
         return this._http.get<IAccount[]>(url)
             .catch(this.handleError);
     }

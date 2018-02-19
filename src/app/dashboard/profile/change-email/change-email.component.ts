@@ -12,8 +12,8 @@ export class ChangeEmailComponent implements OnInit {
   user: IUser;
   newEmailAddress: string;
   confirmedEmailAddress: string;
-  
-  constructor(private auth: AuthenticationService){ }
+
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit() {
     this.user = this.auth.user;

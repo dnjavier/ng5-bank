@@ -16,10 +16,10 @@ export class AccountDetailComponent implements OnInit {
   accountId: number;
   account: IAccount;
   transactions: ITransaction[];
-  
+
   constructor(private _route: ActivatedRoute,
               private _accountService: AccountService,
-              private _transactionService: TransactionService){ }
+              private _transactionService: TransactionService) { }
 
   ngOnInit() {
     // get URL parameters

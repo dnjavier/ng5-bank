@@ -16,7 +16,7 @@ import { SharedRoutingModule } from './shared-routing.module';
     NavbarComponent,
     ErrorComponent
   ],
-  exports: [    
+  exports: [
     NavbarComponent,
     ErrorComponent
   ]

@@ -11,8 +11,8 @@ import { TransactionService } from '../services/transaction.service';
 export class AccountListComponent implements OnInit {
   errorMessage: any;
   transactions: ITransaction[] = [];
-  
-  constructor(private _transactionService: TransactionService){ }
+
+  constructor(private _transactionService: TransactionService) { }
 
   ngOnInit() {
     this._transactionService.getTransactions()

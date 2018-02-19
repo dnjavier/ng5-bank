@@ -10,32 +10,29 @@ import {AuthenticationService} from '../../../services/authentication.service';
   styleUrls: ['./change-password.component.scss']
 })
 export class ChangePasswordComponent implements OnInit {
-  
-  previousPassword: "";
-  newPassword: "";
-  confirmNewPassword: "";
- 
-  
-  
-  constructor(private auth:AuthenticationService){ }
+
+  previousPassword: '';
+  newPassword: '';
+  confirmNewPassword: '';
+
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit() {
   }
 
-  saveChanges(form: NgForm){
-    if ((this.newPassword != "") && (this.newPassword === this.confirmNewPassword) && (this.newPassword != "")) {
+  saveChanges(form: NgForm) {
+    if ((this.newPassword !== '') && (this.newPassword === this.confirmNewPassword) && (this.newPassword !== '')) {
       // console.log({previousPassword : this.previousPassword, newPassword:this.newPassword})
-      this.auth.updateUser({previousPassword : this.previousPassword, newPassword:this.newPassword}).subscribe(
+      this.auth.updateUser({previousPassword: this.previousPassword, newPassword: this.newPassword}).subscribe(
         data => {
             console.log(data);
         },
         error => {
-            console.log("error",error);
+            console.log('error', error);
         });
     } else {
-      console.log(this.newPassword,this.confirmNewPassword)
-      console.log(this.newPassword === this.confirmNewPassword)
+      console.log(this.newPassword, this.confirmNewPassword);
+      console.log(this.newPassword === this.confirmNewPassword);
     }
-    
   }
 }

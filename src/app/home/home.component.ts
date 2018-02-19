@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-	title: string;
-  constructor() { 
-  	this.title = 'KG Bank';
+  title: string;
+  constructor() {
+    this.title = 'KG Bank';
   }
 
   ngOnInit() {

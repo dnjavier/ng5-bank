@@ -18,10 +18,10 @@ export class AuthenticationService {
     user: IUser = {
         username: '',
         password: '',
-        _id:""
+        _id: ''
     };
 
-  	userLoggedIn: boolean = false;
+    userLoggedIn: boolean = false;
     loggedInUser: string;
     authUser;
 
@@ -38,24 +38,24 @@ export class AuthenticationService {
     }
 
     verifyLogin(): boolean {
-    	if (this.userLoggedIn) { 
-            return true; 
+        if (this.userLoggedIn) {
+            return true;
         }
         this.router.navigate(['/login']);
         return false;
     }
 
     // register(email: string, password: string){
-        
+
     // }
 
     updateUser(newUser) {
-        var updateNewUser = {
+        let updateNewUser = {
             username : newUser.username,
             previousPassword : newUser.previousPassword,
             newPassword : newUser.newPassword
         };
-        
+
         return this.http.put(appConfig.apiUrl + '/users/' + this.user._id, updateNewUser);
     }
 
@@ -77,7 +77,7 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
-        this.router.navigate(['']);       
+        this.router.navigate(['']);
     }
 
 }

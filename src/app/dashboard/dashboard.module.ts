@@ -20,7 +20,7 @@ import { AccountsModule } from './accounts/accounts.module';
         MainNavigationComponent
     ],
     providers: [
-        //Services in dashboard
+        // Services in dashboard
     ]
 })
 export class DashboardModule { }

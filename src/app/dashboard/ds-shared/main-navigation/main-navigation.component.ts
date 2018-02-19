@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MainNavigationComponent implements OnInit {
   user = {};
-  constructor(private auth: AuthenticationService, 
+  constructor(private auth: AuthenticationService,
               private router: Router) { }
 
   ngOnInit() {

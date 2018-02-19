@@ -25,7 +25,7 @@ import { OverviewComponent } from './overview/overview.component';
         OverviewComponent
     ],
     providers: [
-        //Services in profile
+        // Services in profile
     ]
 })
 export class ProfileModule { }

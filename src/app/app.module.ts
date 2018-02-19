@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -21,14 +21,14 @@ import { DashboardModule } from './dashboard/dashboard.module';
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent    
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    DashboardModule,   
+    DashboardModule,
     SharedModule,
     NgbModule.forRoot()
   ],

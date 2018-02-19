@@ -11,28 +11,28 @@ export class LoginComponent implements OnInit {
 
   emailInput: string;
   passwordInput: string;
-  
-  constructor(private auth: AuthenticationService, 
-              private router: Router){
+
+  constructor(private auth: AuthenticationService,
+              private router: Router) {
 
   }
 
   ngOnInit() {
   }
 
-  login(){
-    
+  login() {
+
     this.auth.login(this.emailInput, this.passwordInput)
       .subscribe(
         data => {
-            this.router.navigate(["/main"]);
+            this.router.navigate(['/main']);
         },
         error => {
-            console.log("error",error);
+            console.log('error', error);
         });
   }
 
-  cancel(){
+  cancel() {
     this.router.navigate(['']);
   }
 }

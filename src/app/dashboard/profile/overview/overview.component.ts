@@ -10,8 +10,8 @@ import { AuthenticationService } from '../../../services/authentication.service'
 export class OverviewComponent implements OnInit {
 
     user: IUser;
-  
-    constructor(private auth: AuthenticationService){ }
+
+    constructor(private auth: AuthenticationService) { }
 
     ngOnInit() {
         this.user = this.auth.user;

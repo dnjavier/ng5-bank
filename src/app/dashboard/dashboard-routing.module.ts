@@ -15,7 +15,7 @@ import { AccountsComponent } from './accounts/accounts.component';
 import { OverviewComponent } from './profile/overview/overview.component';
 
 const routes: Routes = [
-    { 
+    {
         path: 'main',
         canActivate: [AuthenticationService],
         component: DashboardComponent,
