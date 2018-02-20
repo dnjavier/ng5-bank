@@ -4,22 +4,34 @@ import { AuthenticationService } from '../../../services/authentication.service'
 import { IUser } from '../../../models/user.model';
 
 @Component({
-  selector: 'change-email',
   templateUrl: './change-email.component.html',
   styleUrls: ['./change-email.component.scss']
 })
 export class ChangeEmailComponent implements OnInit {
   user: IUser;
   newEmailAddress: string;
-  confirmedEmailAddress: string;
+  confirmEmailAddress: string;
 
-  constructor(private auth: AuthenticationService) { }
+  constructor(private auth: AuthenticationService,
+              private router: Router) { }
 
   ngOnInit() {
     this.user = this.auth.user;
   }
 
   saveChanges(): void {
-
+    if (this.newEmailAddress !== '' && this.newEmailAddress === this.confirmEmailAddress) {
+      this.auth.updateUser({username: this.newEmailAddress}).subscribe(
+        data => {
+            if (data === 'success') {
+              this.router.navigate(['main', 'profile']);
+            }
+        },
+        error => {
+            console.log('error', error);
+        });
+    } else {
+      console.log(this.newEmailAddress, this.confirmEmailAddress);
+    }
   }
 }
