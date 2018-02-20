@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service';
+import {AlertComponent} from '../shared/alert/alert.component';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,12 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  alertMessage: any = {message:"", type:""};
   emailInput: string;
   passwordInput: string;
 
   constructor(private auth: AuthenticationService,
-              private router: Router) {
+              private router: Router,
+              public alert: AlertComponent) {
 
   }
 
@@ -25,10 +27,16 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.emailInput, this.passwordInput)
       .subscribe(
         data => {
-            this.router.navigate(['/main']);
+            this.router.navigate(['/main']);           
         },
         error => {
-            console.log('error', error);
+            
+            if (error.error == "Username or password is incorrect") {
+              this.alertMessage = {
+                message: "Username or password is incorrect",
+                type: "danger",
+              }
+            }
         });
   }
 

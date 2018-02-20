@@ -34,7 +34,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
   ],
   providers: [
     AuthenticationService,
-    JwtInterceptorProvider
+    JwtInterceptorProvider,
   ],
   bootstrap: [AppComponent]
 })
