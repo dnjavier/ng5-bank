@@ -15,7 +15,7 @@ export class ChangePasswordComponent implements OnInit {
   newPassword: '';
   confirmNewPassword: '';
 
-  constructor(private auth: AuthenticationService) { }
+  constructor(private auth: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -26,13 +26,13 @@ export class ChangePasswordComponent implements OnInit {
       this.auth.updateUser({previousPassword: this.previousPassword, newPassword: this.newPassword}).subscribe(
         data => {
             console.log(data);
+            this.router.navigate(['main/profile']);
         },
         error => {
             console.log('error', error);
         });
     } else {
       console.log(this.newPassword, this.confirmNewPassword);
-      console.log(this.newPassword === this.confirmNewPassword);
     }
   }
 }
