@@ -33,7 +33,6 @@ export class ChangePasswordComponent implements OnInit {
         });
     } else {
       console.log(this.newPassword, this.confirmNewPassword);
-      console.log(this.newPassword === this.confirmNewPassword);
     }
   }
 }
