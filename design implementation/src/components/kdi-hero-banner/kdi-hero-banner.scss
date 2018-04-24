@@ -1,0 +1,26 @@
+.kdi-hero-banner {
+  height: 710px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+
+  &__container {
+    @include container;
+  }
+
+  &__title {
+    @include type-heading-1;
+
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    margin-bottom: 3rem;
+  }
+
+  &__btn {
+    @include button-primary;
+  }
+}

@@ -1,0 +1,29 @@
+// Reset
+@import 'reset';
+
+// Variables
+@import 'variables';
+@import 'fonts';
+
+// Mixins
+@import 'mixins/utility';
+@import 'mixins/type';
+@import 'mixins/buttons';
+
+// Components
+@import "../components/**/*";
+
+body {
+  font-family: $font-family;
+  background-color: $light-grey;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+}

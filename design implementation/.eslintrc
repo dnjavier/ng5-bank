@@ -1,0 +1,23 @@
+{
+  "plugins": ["node"],
+  "extends": ["eslint:recommended", "plugin:node/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "node/exports-style": ["error", "module.exports"],
+    "node/no-unpublished-require": 0,
+    "no-unused-vars": 0,
+    "no-console": 1,
+    "no-useless-escape": 0
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "$": true
+  }
+}

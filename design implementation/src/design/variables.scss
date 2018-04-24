@@ -1,0 +1,19 @@
+// colors
+$brand-green: #34a853;
+$light-grey: #f7f7f7;
+$off-black: #232323;
+$dark-grey: #27292d;
+$greyish: #a4a4a4;
+$steel-grey: #7e848c;
+$charcoal-grey: #37404a;
+$warm-grey: #969696;
+
+// default system font
+$font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$font-family: 'Avenir Next', $font-family-system;
+
+// breakpoints
+$breakpoint-mobile-max: 640px;
+$breakpoint-tablet-min: $breakpoint-mobile-max + 1;
+$breakpoint-tablet-max: 1023px;
+$breakpoint-desktop-min: $breakpoint-tablet-max + 1;

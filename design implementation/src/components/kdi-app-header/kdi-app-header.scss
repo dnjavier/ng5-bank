@@ -1,0 +1,63 @@
+.kdi-app-header {
+  padding: 3rem 0;
+  position: absolute;
+  width: 100%;
+  color: #fff;
+
+  &__container {
+    @include container;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__secondary-nav {
+    margin-left: auto;
+
+    @include breakpoint(mobile) {
+      display: none;
+    }
+  }
+
+  &__list {
+    margin: 0 -1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__list-item {
+    margin: 0 1rem;
+  }
+
+  &__logo {
+    display: block;
+    margin-right: 3rem;
+  }
+
+  &__search {
+    display: flex;
+    margin-right: 2rem;
+    align-items: center;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 34px;
+      background: #fff;
+      margin-right: -2rem;
+      margin-left: 2rem;
+      opacity: 0.3;
+    }
+  }
+
+  &__link {
+    @include type-nav-link;
+  }
+
+  &__btn {
+    @include button-outline-light;
+
+    min-width: 0;
+  }
+}
